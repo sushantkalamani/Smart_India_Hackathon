@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Sentiment Analysis</title>
+    <style>
+        * {
+            padding-top: 30px;
+            color: black;
+            background-color: white;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            text-align: center;
+            padding: 20px;
+        }
+        input[type="file"] {
+            margin-right: 10px;
+        }
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Sentiment Analysis</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="audio" accept=".mp3, .wav">
+        <button type="submit">Upload Audio</button>
+    </form>
+
+    {% if sentiment_score is defined %}
+    <h2>Transcribed Text:</h2>
+    <p>{{ transcribed_text }}</p>
+
+    <h2>Sentiment:</h2>
+    <p>{{ sentiment_score }}</p>
+    {% endif %}
+</body>
+</html>
